@@ -11,20 +11,20 @@
  */
 void get_pop(stack_t **stack, unsigned int line_number)
 {
-  stack_t *first;
+stack_t *first;
 
-  if ((*stack == NULL) || (stack == NULL))
-    {
-      fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-      fclose(file);
-      get_free(*stack);
-      exit(EXIT_FAILURE);
-    }
-  first = *stack;
-  *stack = (*stack)->next;
-  if (first->next)
-    {
-      first->next->prev = NULL;
-    }
-  free(first);
+if ((*stack == NULL) || (stack == NULL))
+{
+fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+fclose(file);
+get_free(*stack);
+exit(EXIT_FAILURE);
+}
+first = *stack;
+*stack = (*stack)->next;
+if (first->next)
+{
+first->next->prev = NULL;
+}
+free(first);
 }
